@@ -31,7 +31,8 @@ int main(int argc, char **argv)
     struct sockaddr_in server_addr;
     char s[INET6_ADDRSTRLEN];
     struct addrinfo hints, *res, *p;
-    char *buff = (char *) malloc (MY_MAX_SIZE);
+    //char *buf = (char *) malloc (MY_MAX_SIZE);
+    char buf[MY_MAX_SIZE];
 
     if (argc !=2) {
     perror("Usage: TCPClient <IP address of the server>");
@@ -72,6 +73,14 @@ int main(int argc, char **argv)
     inet_ntop(p->ai_family, get_in_addr((struct sockaddr *)p->ai_addr),
             s, sizeof s);
     printf("client: connecting to %s\n", s);
+
+    if (recv(sockfd, buf, MY_MAX_SIZE-1, 0) == -1)
+    {
+        perror("recv");
+        return -1;
+    }
+
+    puts(buf);
 
     freeaddrinfo(res);
 

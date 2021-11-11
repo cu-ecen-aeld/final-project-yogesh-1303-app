@@ -104,8 +104,10 @@ int main(int argc, char *argv[])
 	hints.ai_socktype = SOCK_STREAM;	//TCP
 	hints.ai_flags = AI_PASSIVE;    //assign address
 
-	signal(SIGINT, handler);
-	signal(SIGTERM, handler);
+	// signal(SIGINT, handler);
+	// signal(SIGTERM, handler);
+
+	char buf[MY_MAX_SIZE] = "Hello, this is a test for server client communication. If this message prints, the test is successful";
 
 	//starting the connection with the client using the series of functions
 	if(getaddrinfo(NULL, PORT, &hints, &res) != 0)
@@ -161,7 +163,7 @@ int main(int argc, char *argv[])
 	socklen_t addr_size = sizeof(client_addr);
 	//int new_fd;
 
-	char *buf = (char *) malloc(MY_MAX_SIZE);
+	//char *buf = (char *) malloc(MY_MAX_SIZE);
 	if((new_fd = accept(socketfd, (struct sockaddr *)&client_addr, &addr_size)) == -1 )
 	{
 		perror("\naccept");
@@ -173,6 +175,16 @@ int main(int argc, char *argv[])
 		puts(ipstr);
 	}
 	
+	if (send(new_fd, buf, MY_MAX_SIZE, 0) == -1)
+	{
+    	perror("send");
+		return -1;
+	}
+    
+	close(fd);
+	close(socketfd);
+	close(new_fd);	
+	freeaddrinfo(p);
 	//int i;
 	//int fd;
 
