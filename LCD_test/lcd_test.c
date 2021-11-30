@@ -1,6 +1,6 @@
 
 #include "wiringPi.h"
-#include <lcd.h>
+#include "lcd.h"
 #include <stdio.h>
 
 #define D4  (21) 
