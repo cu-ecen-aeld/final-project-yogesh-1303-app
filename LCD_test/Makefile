@@ -9,10 +9,12 @@ ifeq ($(INCLUDES),)
 	INCLUDES = -I/
 endif
 
+DEPS = lcd.h softTone.h softPwm.h wiringPi.h
+
 all: lcd_test 
 
 
-lcd_test.o: lcd_test.c
+lcd_test.o: lcd_test.c $(DEPS)
 	$(CC) $(CFLAGS) -c lcd_test.c
 
 lcd_test: lcd_test.o
