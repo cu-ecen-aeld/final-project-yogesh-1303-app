@@ -16,7 +16,7 @@ lcd_test.o: lcd_test.c
 	$(CC) $(CFLAGS) -c lcd_test.c
 
 lcd_test: lcd_test.o
-	$(CC) $(CFLAGS) lcd.o -o lcd_test -lgpiod
+	$(CC) $(CFLAGS) lcd_test.o -o lcd_test -lgpiod
 
 
 #lcd1: lcd1.o wiringPi.o
