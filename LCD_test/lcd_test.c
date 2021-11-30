@@ -1,5 +1,5 @@
 
-#include <wiringPi.h>
+#include "wiringPi.h"
 #include <lcd.h>
 #include <stdio.h>
 
