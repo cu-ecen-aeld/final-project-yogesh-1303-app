@@ -15,10 +15,11 @@ all: lcd_test
 
 
 lcd_test.o: lcd_test.c $(DEPS)
-	$(CC) $(CFLAGS) -c lcd_test.c
+	$(CC) $(CFLAGS) -c lcd_test.c -lwiringPi -lwiringPiDev
 
 lcd_test: lcd_test.o
-	$(CC) $(CFLAGS) lcd_test.o -o lcd_test -lgpiod
+	$(CC) $(CFLAGS) lcd_test.o -o lcd_test -lwiringPi -lwiringPiDev
+#-lgpiod
 
 
 #lcd1: lcd1.o wiringPi.o
