@@ -1969,7 +1969,7 @@ static void *interruptHandler (UNU void *arg)
 {
   int myPin ;
 
-  (void)piHiPri (55) ;	// Only effective if we run as root
+  //(void)piHiPri (55) ;	// Only effective if we run as root
 
   myPin   = pinPass ;
   pinPass = -1 ;
