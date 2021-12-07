@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 {
 	
 	uint8_t buff[255];
- char send_data[MIFARE_UID_MAX_LENGTH];
+// char send_data[MIFARE_UID_MAX_LENGTH];
     uint8_t uid[MIFARE_UID_MAX_LENGTH];
     int32_t uid_len = 0;
     printf("Hello!\r\n");
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
 	// signal(SIGINT, handler);
 	// signal(SIGTERM, handler);
 
-	char buf[MY_MAX_SIZE] = "Hello, client";
+	//char buf[MY_MAX_SIZE] = "Hello, client";
 
 	//starting the connection with the client using the series of functions
 	if(getaddrinfo(NULL, PORT, &hints, &res) != 0)
