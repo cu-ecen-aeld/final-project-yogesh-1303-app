@@ -27,4 +27,5 @@ int main()
 	lcdPosition(lcd, 0, 0);
 	lcdPuts(lcd, "Hello");
 	return 0;
+
 }
